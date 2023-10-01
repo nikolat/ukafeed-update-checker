@@ -7,7 +7,7 @@ import 'websocket-polyfill';
 import {
 	AppBskyFeedPost,
 	BskyAgent,
-	RichText
+	RichText,
 } from '@atproto/api';
 
 const isDebug = false;
@@ -73,18 +73,18 @@ const isDebug = false;
 		const agent = new BskyAgent({service: 'https://bsky.social'});
 		await agent.login({
 			identifier,
-			password
+			password,
 		});
 		let embed;
 		if (imageData) {
 			const uploadedRes = await agent.uploadBlob(imageData, {
-				encoding: "image/png",
+				encoding: 'image/png',
 			});
 			embed = {
-				$type: "app.bsky.embed.images",
+				$type: 'app.bsky.embed.images',
 				images: [{
-					"alt": '',
-					"image": uploadedRes.data.blob,
+					'alt': '',
+					'image': uploadedRes.data.blob,
 				}],
 			}
 		}
