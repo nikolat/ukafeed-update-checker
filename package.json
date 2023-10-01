@@ -1,0 +1,23 @@
+{
+	"name": "ukafeed-update-checker",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"check": "ts-node src/main.ts"
+	},
+	"keywords": [],
+	"author": "",
+	"devDependencies": {
+		"@atproto/api": "^0.6.20",
+		"@types/node": "^20.7.1",
+		"nostr-tools": "^1.16.0",
+		"typescript": "^5.2.2",
+		"websocket-polyfill": "^0.0.3"
+	},
+	"license": "UNLICENSED",
+	"private": true,
+	"dependencies": {
+		"ts-node": "^10.9.1"
+	}
+}
