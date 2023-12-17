@@ -45,7 +45,7 @@ const isDebug = false;
 	// Nostrに投稿
 	async function postNostr(sk: string, message: string, relays: string[], urls: string[], hashTag: string) {
 		const pool = new SimplePool({eoseSubTimeout: 60, getTimeout: 60});
-		const tags = [['t', hashTag], ...urls.map(url => ['r', url]), ...urls.map(url => ['proxy', `${obj.feedUrl}#${encodeURI(url)}`, 'rss'])];
+		const tags = [['t', hashTag], ...urls.map(url => ['r', url]), ...urls.map(url => ['proxy', `${obj.feedUrl}#${encodeURIComponent(url)}`, 'rss'])];
 		const unsignedEvent = {
 			kind: 1,
 			pubkey: '',
