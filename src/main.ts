@@ -59,8 +59,13 @@ const isDebug = false;
 		};
 		const signedEvent = finalizeEvent(unsignedEvent, sk)
 		const pubs = pool.publish(relays, signedEvent);
-		await Promise.all(pubs);
-		pool.close(relays);
+		try {
+			await Promise.all(pubs);
+		} catch (error) {
+			console.error(error);
+		} finally {
+			pool.close(relays);
+		}
 	}
 
 	// Blueskyに投稿
