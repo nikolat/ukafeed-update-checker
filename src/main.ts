@@ -2,8 +2,9 @@ import {
 	SimplePool,
 	nip19,
 	finalizeEvent,
+	useWebSocketImplementation,
 } from 'nostr-tools';
-import 'websocket-polyfill';
+useWebSocketImplementation(require('ws'))
 import {
 	AppBskyFeedPost,
 	BskyAgent,
