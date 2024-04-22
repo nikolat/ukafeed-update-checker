@@ -4,7 +4,7 @@ import {
 	finalizeEvent,
 	useWebSocketImplementation,
 } from 'nostr-tools';
-useWebSocketImplementation(require('ws'))
+useWebSocketImplementation(require('ws'));
 import {
 	AppBskyFeedPost,
 	BskyAgent,
@@ -58,15 +58,10 @@ const isDebug = false;
 			tags: tags,
 			content: message,
 		};
-		const signedEvent = finalizeEvent(unsignedEvent, sk)
+		const signedEvent = finalizeEvent(unsignedEvent, sk);
 		const pubs = pool.publish(relays, signedEvent);
-		try {
-			await Promise.all(pubs);
-		} catch (error) {
-			console.error(error);
-		} finally {
-			pool.close(relays);
-		}
+		await Promise.any(pubs);
+		pool.close(relays);
 	}
 
 	// Blueskyに投稿
