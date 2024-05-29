@@ -1,10 +1,9 @@
-import {
-	SimplePool,
-	nip19,
-	finalizeEvent,
-	useWebSocketImplementation,
-} from 'nostr-tools';
-useWebSocketImplementation(require('ws'));
+import * as nip19 from 'nostr-tools/nip19';
+import { finalizeEvent } from 'nostr-tools/pure';
+import { SimplePool, useWebSocketImplementation } from 'nostr-tools/pool';
+import WebSocket from 'ws';
+import fs from 'fs';
+useWebSocketImplementation(WebSocket);
 import {
 	AppBskyFeedPost,
 	BskyAgent,
@@ -15,7 +14,6 @@ const isDebug = false;
 
 (async() => {
 	const saveFileName = 'save.json';
-	const fs = require('fs');
 	const obj = JSON.parse(fs.readFileSync(saveFileName, 'utf8'));
 	const latestTime = obj.latestTime;
 	const NOSTR_PRIVATE_KEY = process.env.NOSTR_PRIVATE_KEY ?? '';

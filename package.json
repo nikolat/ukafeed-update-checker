@@ -4,20 +4,22 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"check": "ts-node src/main.ts"
+		"check": "node --loader ts-node/esm src/main.ts"
 	},
 	"keywords": [],
 	"author": "",
 	"devDependencies": {
 		"@types/node": "^20.12.7",
+		"@types/ws": "^8.5.10",
 		"typescript": "^5.4.5"
 	},
 	"license": "UNLICENSED",
 	"private": true,
 	"dependencies": {
-		"@atproto/api": "^0.12.5",
-		"nostr-tools": "^2.5.0",
+		"@atproto/api": "^0.12.13",
+		"nostr-tools": "^2.7.0",
 		"ts-node": "^10.9.2",
-		"ws": "^8.16.0"
-	}
+		"ws": "^8.17.0"
+	},
+	"type": "module"
 }
