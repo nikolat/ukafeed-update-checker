@@ -3,7 +3,8 @@
 	"latestTime": 1720079348,
 	"feedUrl": "https://feed.ukagaka.net/json/",
 	"relays": [
-		"wss://relay.nostr.wirednet.jp"
+		"wss://relay.nostr.wirednet.jp",
+		"wss://relay.mymt.casa"
 	],
 	"targetStream": "t58q2xgwj1gtb7pdk06847pb1zg@ariake.concrnt.net"
 }
