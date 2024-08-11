@@ -135,6 +135,7 @@ const isDebug = false;
     subkey: string,
     body: string,
   ) {
+    body = body.replace(/(https?:\/\/.+\.(png|jpe?g|gif|bmp|webp))/gi, '![]($1)');
     const client = await Client.createFromSubkey(subkey);
     if (client.user === null) {
       console.warn('client.user is null');
