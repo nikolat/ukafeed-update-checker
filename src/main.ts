@@ -1,9 +1,7 @@
 import * as nip19 from 'nostr-tools/nip19';
 import { finalizeEvent } from 'nostr-tools/pure';
-import { SimplePool, useWebSocketImplementation } from 'nostr-tools/pool';
-import WebSocket from 'ws';
-import fs from 'fs';
-useWebSocketImplementation(WebSocket);
+import { SimplePool } from 'nostr-tools/pool';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { AppBskyFeedPost, BskyAgent, RichText } from '@atproto/api';
 import { Client } from '@concurrent-world/client';
 
@@ -11,7 +9,7 @@ const isDebug = false;
 
 (async () => {
   const saveFileName = 'save.json';
-  const obj = JSON.parse(fs.readFileSync(saveFileName, 'utf8'));
+  const obj = JSON.parse(readFileSync(saveFileName, 'utf8'));
   const latestTime = obj.latestTime;
   const NOSTR_PRIVATE_KEY = process.env.NOSTR_PRIVATE_KEY ?? '';
   const BLUESKY_IDENTIFIER = process.env.BLUESKY_IDENTIFIER ?? '';
@@ -39,7 +37,7 @@ const isDebug = false;
     console.log('post complete');
     obj.latestTime = latestTimeNew;
     if (!isDebug) {
-      fs.writeFileSync(saveFileName, JSON.stringify(obj, null, 2) + '\n');
+      writeFileSync(saveFileName, JSON.stringify(obj, null, 2) + '\n');
     }
     console.log('save complete');
     process.exit(0);
@@ -135,7 +133,10 @@ const isDebug = false;
     subkey: string,
     body: string,
   ) {
-    body = body.replace(/(https?:\/\/.+\.(png|jpe?g|gif|bmp|webp))/gi, '![]($1)');
+    body = body.replace(
+      /(https?:\/\/.+\.(png|jpe?g|gif|bmp|webp))/gi,
+      '![]($1)',
+    );
     const client = await Client.createFromSubkey(subkey);
     if (client.user === null) {
       console.warn('client.user is null');
