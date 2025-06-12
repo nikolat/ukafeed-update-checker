@@ -2,7 +2,7 @@ import * as nip19 from 'nostr-tools/nip19';
 import { finalizeEvent } from 'nostr-tools/pure';
 import { SimplePool } from 'nostr-tools/pool';
 import { readFileSync, writeFileSync } from 'node:fs';
-import { AppBskyFeedPost, BskyAgent, RichText } from '@atproto/api';
+import { AppBskyFeedPost, AtpAgent, RichText } from '@atproto/api';
 import { Client } from '@concurrent-world/client';
 
 const isDebug = false;
@@ -92,12 +92,12 @@ const isDebug = false;
       imageData = new Uint8Array(buffer);
       text = text.replace(imageUrl + '\n', '');
     }
-    const agent = new BskyAgent({ service: 'https://bsky.social' });
+    const agent = new AtpAgent({ service: 'https://bsky.social' });
     await agent.login({
       identifier,
       password,
     });
-    let embed;
+    let embed: any;
     if (imageData) {
       const uploadedRes = await agent.uploadBlob(imageData, {
         encoding: 'image/png',
@@ -120,7 +120,7 @@ const isDebug = false;
       facets: rt.facets,
       createdAt: new Date().toISOString(),
     };
-    if (embed) {
+    if (embed !== undefined) {
       postRecord.embed = embed;
     }
     const res = await agent.post(postRecord);
