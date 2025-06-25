@@ -4,9 +4,8 @@
   "feedUrl": "https://feed.ukagaka.net/json/",
   "relays": [
     "wss://relay.nostr.wirednet.jp/",
-    "wss://n3r.xyz/",
-    "wss://r.bitcoinhold.net/",
-    "wss://nostr.ittanmo.men/"
+    "wss://nrelay.c-stellar.net/",
+    "wss://r.bitcoinhold.net/"
   ],
   "targetStream": "t58q2xgwj1gtb7pdk06847pb1zg@ariake.concrnt.net"
 }
