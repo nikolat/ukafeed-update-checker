@@ -2,10 +2,6 @@
   "hashTag": "うかフィード",
   "latestTime": 1784545863,
   "feedUrl": "https://feed.ukagaka.net/json/",
-  "relays": [
-    "wss://relay.nostr.wirednet.jp/",
-    "wss://nrelay.c-stellar.net/",
-    "wss://r.bitcoinhold.net/"
-  ],
+  "relays": ["wss://relay.nostr.wirednet.jp/"],
   "targetStream": "t58q2xgwj1gtb7pdk06847pb1zg@ariake.concrnt.net"
 }
