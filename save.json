@@ -1,6 +1,6 @@
 {
   "hashTag": "うかフィード",
-  "latestTime": 1788003293,
+  "latestTime": 1788003370,
   "feedUrl": "https://feed.ukagaka.net/json/",
   "relays": [
     "wss://relay.nostr.wirednet.jp/"
