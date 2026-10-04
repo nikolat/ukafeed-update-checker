@@ -4,7 +4,7 @@
   "feedUrl": "https://feed.ukagaka.net/json/",
   "relays": [
     "wss://relay.nostr.wirednet.jp/",
-    "wss://relay.damustr.com/",
+    "wss://relay.nostrfy.org/",
     "wss://n.kojira.io/"
   ]
 }
